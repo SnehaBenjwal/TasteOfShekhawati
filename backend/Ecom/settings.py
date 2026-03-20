@@ -71,14 +71,9 @@ WSGI_APPLICATION = 'Ecom.wsgi.application'
 # DATABASE
 # -------------------------
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('NAME', default='ecommerce'),
-        'USER': config('USER', default='postgres'),
-        'PASSWORD': config('PASSWORD', default=''),
-        'HOST': config('HOST', default='localhost'),
-        'PORT': config('PORT', default='5432'),
-    }
+    'default': dj_database_url.config(
+        default=config("DATABASE_URL")
+    )
 }
 
 # -------------------------
